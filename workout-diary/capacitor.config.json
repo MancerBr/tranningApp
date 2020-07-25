@@ -1,0 +1,19 @@
+{
+  "appId": "workout.diary.app",
+  "appName": "workout-diary",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {},
+  "SplashScreen": {
+    "launchShowDuration": 3000,
+    "launchAutoHide": true,
+    "backgroundColor": "#000",
+    "androidSplashResourceName": "splash",
+    "androidScaleType": "CENTER_CROP",
+    "androidSpinnerStyle": "large",
+    "iosSpinnerStyle": "small",
+    "spinnerColor": "#999999",
+    "showSpinner": false
+  }
+}

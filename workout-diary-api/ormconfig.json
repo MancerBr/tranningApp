@@ -1,0 +1,19 @@
+{
+  "type": "postgres",
+  "host": "127.0.0.1",
+  "port": 5432,
+  "username": "postgres",
+  "password": "arizona",
+  "database": "workout-diary",
+  "entities": [
+    "**/*.entity.js"
+  ],
+  "migrationsTableName": "migration",
+  "migrations": [
+    "build/migration/*.js"
+  ],
+  "cli": {
+    "migrationsDir": "src/migration"
+  },
+  "ssl": false
+}

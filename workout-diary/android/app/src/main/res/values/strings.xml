@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Workout diary</string>
+    <string name="title_activity_main">Workout diary</string>
+    <string name="package_name">workout.diary.app</string>
+    <string name="custom_url_scheme">workout.diary.app</string>
+</resources>

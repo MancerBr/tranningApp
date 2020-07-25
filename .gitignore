@@ -1,0 +1,84 @@
+# compiled output
+/workout-diary-api/dist
+/workout-diary-api/node_modules
+
+
+# Logs
+/workout-diary-api/logs
+/workout-diary-api/*.log
+/workout-diary-api/npm-debug.log*
+/workout-diary-api/yarn-debug.log*
+/workout-diary-api/yarn-error.log*
+/workout-diary-api/lerna-debug.log*
+
+# OS
+/workout-diary-api/.DS_Store
+
+# Tests
+/workout-diary-api/coverage
+/workout-diary-api/.nyc_output
+
+# IDEs and editors
+/workout-diary-api/.idea
+/workout-diary-api/.project
+/workout-diary-api/.classpath
+/workout-diary-api/.c9/
+/workout-diary-api/*.launch
+/workout-diary-api/.settings/
+/workout-diary-api/*.sublime-workspace
+
+# IDE - VSCode
+/workout-diary-api/.vscode/*
+/workout-diary-api/!.vscode/settings.json
+/workout-diary-api/!.vscode/tasks.json
+/workout-diary-api/!.vscode/launch.json
+/workout-diary-api/!.vscode/extensions.json
+
+/workout-diary-api/.env
+
+####workout-diary####
+/workout-diary/node_modules
+/workout-diary/*~
+/workout-diary/*.sw[mnpcod]
+/workout-diary/.tmp
+/workout-diary/*.tmp
+/workout-diary/*.tmp.*
+/workout-diary/*.sublime-project
+/workout-diary/*.sublime-workspace
+/workout-diary/.DS_Store
+/workout-diary/Thumbs.db
+/workout-diary/UserInterfaceState.xcuserstate
+/workout-diary/$RECYCLE.BIN/
+
+/workout-diary/*.log
+/workout-diary/log.txt
+/workout-diary/npm-debug.log*
+
+/workout-diary/.idea
+/workout-diary/.ionic
+/workout-diary/.sass-cache
+/workout-diary/.sourcemaps
+/workout-diary/.versions
+/workout-diary/.vscode
+/workout-diary/coverage
+/workout-diary/dist
+/workout-diary/platforms
+/workout-diary/plugins
+/workout-diary/www
+
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json

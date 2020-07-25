@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Create Template
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="create()">
+    <ion-list>
+      <ion-item
+        class="title-section"
+        lines="none">
+        <ion-label position="floating">
+          Workout name
+        </ion-label>
+        <ion-input
+          [value]="template.name"
+          type="text"
+          [(ngModel)]="template.name"
+          name="name">
+        </ion-input>
+      </ion-item>
+      <div
+        *ngFor="let exercise of exercises; let id = index;"
+        class="block">
+        <ion-item>
+          <ion-label position="floating">
+            Exercise name
+          </ion-label>
+          <ion-input
+            [value]="exercise.name"
+            type="text"
+            [(ngModel)]="exercise.name"
+            name="exercise{{id}}">
+          </ion-input>
+        </ion-item>
+        <div class="steps-section">
+          <ion-item>
+            <ion-label position="floating">
+              Number of steps
+            </ion-label>
+            <ion-input
+              [value]="exercise.steps"
+              type="number"
+              [(ngModel)]="exercise.steps"
+              name="steps{{id}}">
+            </ion-input>
+          </ion-item>
+          <div class="btn-wrapper">
+            <ion-button
+             size="small"
+             (click)="remove($event, id)">
+              Remove exercise
+            </ion-button>
+          </div>
+        </div>
+      </div>
+      <ion-item lines="none">
+        <ion-button
+          class="full-btn"
+          size="large"
+          (click)="add($event)">
+          Add exercise
+        </ion-button>
+      </ion-item>
+    </ion-list>
+    <ion-button
+      class="full-btn"
+      type="submit"
+      size="large">
+      Create
+    </ion-button>
+  </form>
+</ion-content>
