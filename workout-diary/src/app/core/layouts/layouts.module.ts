@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import {IonicModule} from '@ionic/angular';
 
 import {MainComponent} from './main/main.component';
-import {MenuModule} from '../menu/menu.module';
 import {AuthComponent} from './auth/auth.component';
+import {MenuModule} from '../../pages/menu/menu.module';
 
 
 @NgModule({

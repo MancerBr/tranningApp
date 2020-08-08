@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-import {MainComponent} from './layouts/main/main.component';
-import {AuthComponent} from './layouts/auth/auth.component';
-
+import {AuthComponent} from './core/layouts/auth/auth.component';
+import {MainComponent} from './core/layouts/main/main.component';
 
 const appRoutes: Routes = [
   {
@@ -20,7 +19,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule),
+        loadChildren: () => import('./pages/auth/auth.module').then( m => m.AuthModule),
       },
     ],
   },
@@ -30,23 +29,23 @@ const routes: Routes = [
     children: [
       {
         path: 'home',
-        loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+        loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule),
       },
       {
         path: 'workout',
-        loadChildren: () => import('./workout/workout.module').then( m => m.WorkoutModule),
+        loadChildren: () => import('./pages/workout/workout.module').then( m => m.WorkoutModule),
       },
       {
         path: 'templates',
-        loadChildren: () => import('./templates/templates.module').then( m => m.TemplatesModule),
+        loadChildren: () => import('./pages/templates/templates.module').then( m => m.TemplatesModule),
       },
       {
         path: 'settings',
-        loadChildren: () => import('./settings/settings.module').then( m => m.SettingsModule),
+        loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsModule),
       },
       {
         path: 'help',
-        loadChildren: () => import('./help/help.module').then( m => m.HelpModule),
+        loadChildren: () => import('./pages/help/help.module').then( m => m.HelpModule),
       },
     ],
   },

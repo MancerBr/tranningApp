@@ -1,0 +1,28 @@
+<ion-content class="content">
+  <div class="auth-bg"></div>
+  <form class="auth-form">
+    <h1 class="auth-logo-text">workout-diary</h1>
+    <ion-item class="auth-input-item">
+      <ion-input
+              class="auth-input"
+              placeholder="E-mail">
+      </ion-input>
+    </ion-item>
+    <ion-item class="auth-input-item">
+      <ion-input
+              class="auth-input"
+              placeholder="Password"
+              type="password"
+      ></ion-input>
+    </ion-item>
+    <ion-button
+            (click)="login($event)"
+            class="auth-button"
+            size="large"
+            color="secondary">
+      Sing in
+    </ion-button>
+    <span class="sing-up" (click)="navigate($event)">Sing up</span>
+  </form>
+</ion-content>
+
