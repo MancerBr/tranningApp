@@ -18,3 +18,8 @@ export const getAuthError = createSelector(
     selectAuth,
     (state: AuthState) => state && state.error,
 );
+
+export const getAccessToken = createSelector(
+    selectAuth,
+    (state: AuthState) => state && state.access_token,
+);

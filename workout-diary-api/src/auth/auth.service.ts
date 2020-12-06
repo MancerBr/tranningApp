@@ -102,11 +102,13 @@ export class AuthService {
     const { access_token, refresh_token } = this.generateTokens(payload, sessionId);
     // @ts-ignore
     const { exp } = jwt.decode(refresh_token);
+    const date = new Date(0);
+
     await this.saveSession({
       userId,
       sessionId,
       deviceId,
-      expiresIn: exp,
+      expiresIn: date.setUTCSeconds(exp),
     });
     return {
       access_token,
@@ -144,8 +146,10 @@ export class AuthService {
       where: { userId: Equal(userId) },
     });
     const currentTime = new Date().getTime();
+
     const authSessions =  sessions && sessions.length ? sessions.filter(item => item.deviceId === deviceId) : [];
-    const expiredSessions = sessions && sessions.length ? sessions.filter(item => item.expiresIn < currentTime) : [];
+    const expiredSessions = sessions && sessions.length ? sessions.filter(item => item.expiresIn.valueOf() < currentTime.valueOf()) : [];
+
     const removeItems = [...expiredSessions, ...authSessions];
     return removeItems && removeItems.length ? await this.authModel.remove([...expiredSessions, ...authSessions]) : false;
   }

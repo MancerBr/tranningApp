@@ -14,7 +14,7 @@ export class Auth extends BaseEntity {
   @Column({ type: 'varchar' })
   deviceId: string;
 
-  @Column({ type: 'int'})
+  @Column({ type: 'bigint'})
   expiresIn: number;
 
 }
