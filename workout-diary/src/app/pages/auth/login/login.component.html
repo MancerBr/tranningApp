@@ -1,15 +1,17 @@
 <ion-content class="content">
   <div class="auth-bg"></div>
-  <form class="auth-form">
+  <form class="auth-form" [formGroup]="formGroup">
     <h1 class="auth-logo-text">workout-diary</h1>
     <ion-item class="auth-input-item">
       <ion-input
+              formControlName="email"
               class="auth-input"
               placeholder="E-mail">
       </ion-input>
     </ion-item>
     <ion-item class="auth-input-item">
       <ion-input
+              formControlName="password"
               class="auth-input"
               placeholder="Password"
               type="password"

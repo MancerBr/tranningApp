@@ -9,10 +9,18 @@ export const login = createAction(
 
 export const loginSuccess = createAction(
     '[Login Page] Login success',
-    props<{ success: boolean; }>(),
 );
 
 export const loginError = createAction(
     '[Login Page] Error',
     props<{ error: any; }>(),
+);
+
+export const setTokens = createAction(
+    '[Login Page] set tokens',
+    props<{ access_token?: string; refresh_token?: string; }>(),
+);
+
+export const clearTokens = createAction(
+    '[Login Page] clear tokens',
 );

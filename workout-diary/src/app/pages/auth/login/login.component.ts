@@ -1,8 +1,9 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {select, Store} from '@ngrx/store';
+import { Component, OnDestroy } from '@angular/core';
+import { select, Store } from '@ngrx/store';
 import { NavController } from '@ionic/angular';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
+import { FormControl, FormGroup } from '@angular/forms';
 
 import { StoreState } from '../../../core/store';
 import { getAuthError, getAuthSuccess, login } from '../../../core/store/auth';
@@ -12,8 +13,12 @@ import { getAuthError, getAuthSuccess, login } from '../../../core/store/auth';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss', '../auth.component.scss'],
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginComponent implements OnDestroy {
 
+  formGroup: FormGroup = new FormGroup({
+    email: new FormControl(''),
+    password: new FormControl(''),
+  });
   error: any;
 
   private readonly destroy: Subject<void> = new Subject<void>();
@@ -25,9 +30,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.subscribeOnAuthState();
   }
 
-  ngOnInit() {
-  }
-
   ngOnDestroy() {
     this.destroy.next();
     this.destroy.complete();
@@ -35,7 +37,8 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   login(ev): void {
     ev.preventDefault();
-    this.store.dispatch(login({ username: 'username', password: 'password', deviceId: 'deviceId' }));
+    const {email = null, password = null, } = this.formGroup.value;
+    this.store.dispatch(login({ email, password }));
   }
 
   navigate(ev) {
@@ -49,7 +52,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         filter(item => !!item),
         takeUntil(this.destroy),
     ).subscribe((data) => {
-      this.navCtrl.navigateRoot('/home', { animated: false });
+      this.navCtrl.navigateRoot('', { animated: false });
     });
 
     this.store.pipe(

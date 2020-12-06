@@ -8,7 +8,8 @@ import {
   HttpStatus,
   Res,
   Req,
-  Delete, Get,
+  Delete,
+  Get,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { Response, Request } from 'express';
@@ -18,6 +19,7 @@ import { UserService } from '../user/user.service';
 import { User } from '../user/user.entity';
 import { Auth } from './auth.entity';
 import { CurrentUser } from '../core/decorators/user.decorator';
+import { UserDto } from '../user/dtos/user.dto';
 
 @Controller('auth')
 export class AuthController {
@@ -27,16 +29,8 @@ export class AuthController {
   ) {}
 
   @Post('register')
-  async register(@Body() user: User): Promise<{message: string}> {
-    const { email, password } = user;
-
-    if (!email) {
-      throw new HttpException('Username is required', HttpStatus.BAD_REQUEST);
-    }
-
-    if (!password) {
-      throw new HttpException('Password is required', HttpStatus.BAD_REQUEST);
-    }
+  async register(@Body() user: UserDto): Promise<{success: boolean}> {
+    const { email } = user;
 
     let exist;
     try {
@@ -49,9 +43,9 @@ export class AuthController {
       throw new HttpException(`${email} exists`, HttpStatus.BAD_REQUEST);
     }
 
-    const newUser = await this.userService.register(user);
+    await this.userService.register(user);
     return {
-      message: 'user create seccess!',
+      success: true,
     };
   }
 
